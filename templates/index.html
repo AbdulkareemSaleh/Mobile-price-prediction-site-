@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> Mobile Price Prediction  </title>
+  <style>
+body { 
+	 font-family: "Times New Roman", Times, serif;
+  background: black url("static/mobile.jpg") no-repeat fixed center; 
+}
+
+    div{: border: 20px outset red;
+  background-color: hsla(0, 100%, 70%, 0.3);
+  color: white;
+  text-align: center;}
+h1{
+  text-align: center;
+  color: lightblue;
+}
+	    h2{
+			   color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  text-align: center;
+
+		  }
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: dimgray;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: green}
+
+.button:active {
+  background-color: green;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+	  
+  </style>
+</head>
+  
+<body>
+<h1>Mobile Price Prediction</h1>
+<div>
+	<p style="color: lightblue; text-align: center;"> please fill the data below:</p>
+  <h4>
+  
+ <form action="{{url_for('predict')}}" method=post enctype=multipart/form-data>
+
+   <label for="battery_power">
+   enter your disired battery power
+  </label> <br>
+  <input type="text" id="battery_power" name="battery_power" placeholder="from 530 to 1800 ">
+   <br>
+   <br>
+   <label for="bluetooth">
+    does it have bluetooth ?
+  </label> <br>
+  <input type="text" id="bluetooth" name="bluetooth" placeholder="for yes type1, for no 0">
+  </br> 
+  <br>
+  <label for="front_camera">
+    does it have front camera ?
+  </label> <br>
+  <input type="text" id="front_camera" name="front_camera" placeholder="for yes type1, for no 0" >
+  </br> 
+  <br>
+  <label for="four_g">
+    does it support 4G ?
+  </label> <br>
+  <input type="text" id="four_g" name="four_g" placeholder="for yes type1, for no 0">
+  <br> 
+<br>
+<label for="int_memory">
+    how much is the internal memory ?
+  </label> <br>
+  <input type="text" id="int_memory" name="int_memory" placeholder="from 7 to 60 ">
+  </br> 
+
+<br>
+<label for="n_cores">
+    number of cores?
+  </label> <br>
+  <input type="text" id="n_cores" name="n_cores"placeholder="from 1 to 8 ">
+  </br> 
+<br>
+    
+<label for="pc">
+    primary camera pixels from 2-20?
+  </label> <br>
+  <input type="text" id="pc" name="pc" placeholder="from 2 to 20 ">
+  </br> 
+<br>
+<label for="touch_screen">
+    does it have touch screan ?
+  </label> <br>
+  <input type="text" id="touch_screen" name="touch_screen" placeholder="for yes type1, for no 0">
+  </br> 
+<br>
+<label for="wifi">
+    does it have wifi ?
+  </label> <br>
+  <input type="text" id="wifi" name="wifi" placeholder="for yes type1, for no 0" >
+  </br> 
+
+<br>
+
+<br>
+	 </div>
+<br><center>
+<button class="button" type="submit" >submit</button> 
+</form>  
+  </center>
+	  
+<br>
+	  <br>
+	  <h2 >
+  {{prediction_text}}
+		  </h2>
+	  <br>
+
+  </h4>
+</body>
+</html>
